@@ -43,6 +43,10 @@ apis:
         url: https://www.olark.com/api
 
 common:
+  - type: GitHubOrganization
+    url: https://github.com/olark
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/olark
   - type: Website
     url: https://www.olark.com
   - type: Documentation
