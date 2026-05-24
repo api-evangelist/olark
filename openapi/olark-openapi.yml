@@ -1,0 +1,246 @@
+openapi: 3.1.0
+info:
+  title: Olark JavaScript API
+  description: |
+    Olark exposes a browser-side JavaScript API for embedding and controlling
+    the Olark live-chat widget. It is not a server REST API; this OpenAPI
+    document describes the JavaScript API surface as documented at
+    https://www.olark.com/api by treating each `olark('api.<area>.<method>')`
+    invocation as a logical operation under a synthetic `/api/...` path so
+    that the contract can be navigated alongside conventional REST APIs.
+    Authentication is performed client-side via the Olark site identifier
+    passed to `olark.identify(siteId)`.
+  version: "1.0.0"
+  contact:
+    name: Olark
+    url: https://www.olark.com/api
+servers:
+  - url: https://www.olark.com/api
+    description: Olark JavaScript API documentation host (logical base for this spec)
+security:
+  - OlarkSiteId: []
+tags:
+  - name: Box
+    description: Chatbox visibility and lifecycle
+  - name: Chat
+    description: Chat conversation and operator control
+  - name: Visitor
+    description: Visitor profile updates
+  - name: Rules
+    description: Targeted chat rules
+  - name: Configure
+    description: Pre-load configuration
+paths:
+  /configure:
+    post:
+      tags: [Configure]
+      summary: olark.configure(key, value)
+      description: |
+        Sets a chatbox configuration value before the widget initializes.
+        Example: `olark.configure('system.hb_position', 'left');`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [key, value]
+              properties:
+                key:
+                  type: string
+                value: {}
+      responses:
+        "200":
+          description: Configuration applied (client-side)
+  /identify:
+    post:
+      tags: [Configure]
+      summary: olark.identify(siteId)
+      description: |
+        Initializes the Olark chatbox with the supplied site identifier.
+        Example: `olark.identify('1234-456-78-9810');`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [siteId]
+              properties:
+                siteId:
+                  type: string
+      responses:
+        "200":
+          description: Identified (client-side)
+  /box/show:
+    post:
+      tags: [Box]
+      summary: api.box.show
+      responses:
+        "200":
+          description: Chatbox shown
+  /box/hide:
+    post:
+      tags: [Box]
+      summary: api.box.hide
+      responses:
+        "200":
+          description: Chatbox hidden
+  /box/expand:
+    post:
+      tags: [Box]
+      summary: api.box.expand
+      responses:
+        "200":
+          description: Chatbox expanded
+  /box/shrink:
+    post:
+      tags: [Box]
+      summary: api.box.shrink
+      responses:
+        "200":
+          description: Chatbox shrunk
+  /box/setLocale:
+    post:
+      tags: [Box]
+      summary: api.box.setLocale
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locale:
+                  type: string
+      responses:
+        "200":
+          description: Locale applied
+  /chat/sendMessageToVisitor:
+    post:
+      tags: [Chat]
+      summary: api.chat.sendMessageToVisitor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+      responses:
+        "200":
+          description: Message dispatched to visitor
+  /chat/setOperatorGroup:
+    post:
+      tags: [Chat]
+      summary: api.chat.setOperatorGroup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                group:
+                  type: string
+      responses:
+        "200":
+          description: Operator group set
+  /chat/onBeginConversation:
+    post:
+      tags: [Chat]
+      summary: api.chat.onBeginConversation (event subscription)
+      responses:
+        "200":
+          description: Callback registered
+  /visitor/getDetails:
+    post:
+      tags: [Visitor]
+      summary: api.visitor.getDetails
+      responses:
+        "200":
+          description: Visitor details returned to callback
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /visitor/updateFullName:
+    post:
+      tags: [Visitor]
+      summary: api.visitor.updateFullName
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [fullName]
+              properties:
+                fullName:
+                  type: string
+      responses:
+        "200":
+          description: Visitor name updated
+  /visitor/updateEmailAddress:
+    post:
+      tags: [Visitor]
+      summary: api.visitor.updateEmailAddress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [emailAddress]
+              properties:
+                emailAddress:
+                  type: string
+                  format: email
+      responses:
+        "200":
+          description: Visitor email updated
+  /visitor/updatePhoneNumber:
+    post:
+      tags: [Visitor]
+      summary: api.visitor.updatePhoneNumber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phoneNumber]
+              properties:
+                phoneNumber:
+                  type: string
+      responses:
+        "200":
+          description: Visitor phone updated
+  /rules/defineRule:
+    post:
+      tags: [Rules]
+      summary: api.rules.defineRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Rule defined
+components:
+  securitySchemes:
+    OlarkSiteId:
+      type: apiKey
+      in: query
+      name: site_id
+      description: |
+        Olark identifies an installation via a public site identifier
+        (e.g. `1234-456-78-9810`) passed client-side to `olark.identify()`.
+        It is not a secret and is included here only to make the
+        identification mechanism explicit in the OpenAPI contract.
