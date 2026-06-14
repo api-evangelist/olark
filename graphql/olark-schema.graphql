@@ -1,0 +1,698 @@
+"""
+Olark GraphQL Schema
+Conceptual schema derived from the Olark REST API and platform capabilities.
+Covers live chat, visitor tracking, transcripts, operators, automations, and reporting.
+"""
+
+scalar DateTime
+scalar JSON
+scalar URL
+
+# ─── Chat ────────────────────────────────────────────────────────────────────
+
+"""A live chat session between a visitor and one or more operators."""
+type Chat {
+  id: ID!
+  details: ChatDetails
+  status: ChatStatus!
+  type: ChatType!
+  visitor: Visitor
+  operators: [Operator!]
+  groups: [Group!]
+  transcript: Transcript
+  tags: [Tag!]
+  notes: [ChatNote!]
+  customData: [CustomData!]
+  startedAt: DateTime!
+  endedAt: DateTime
+  duration: Int
+}
+
+"""Extended details for a chat session."""
+type ChatDetails {
+  chatId: ID!
+  subject: String
+  referrerURL: URL
+  pageURL: URL
+  pageTitle: String
+  campaign: Campaign
+  cobrowse: CoBrowse
+  fileTransfers: [FileTransfer!]
+  greeting: Greeting
+  offline: Boolean!
+}
+
+"""Enumeration of possible chat statuses."""
+enum ChatStatus {
+  PENDING
+  ACTIVE
+  CLOSED
+  MISSED
+  TRANSFERRED
+}
+
+"""Enumeration of chat types."""
+enum ChatType {
+  INBOUND
+  OUTBOUND
+  AUTOMATED
+  OFFLINE
+}
+
+# ─── Visitor ─────────────────────────────────────────────────────────────────
+
+"""A website visitor who may engage in a chat."""
+type Visitor {
+  id: ID!
+  details: VisitorDetails
+  browser: VisitorBrowser
+  geo: VisitorGeo
+  organization: VisitorOrg
+  chats: [Chat!]
+  customData: [CustomData!]
+  firstSeenAt: DateTime
+  lastSeenAt: DateTime
+  pageViews: Int
+  chatCount: Int
+}
+
+"""Detailed identity information about a visitor."""
+type VisitorDetails {
+  visitorId: ID!
+  name: String
+  email: String
+  phone: String
+  city: String
+  region: String
+  country: String
+  ipAddress: String
+  conversationCount: Int
+}
+
+"""Browser and device information for a visitor."""
+type VisitorBrowser {
+  userAgent: String
+  browserName: String
+  browserVersion: String
+  operatingSystem: String
+  deviceType: String
+  screenWidth: Int
+  screenHeight: Int
+  language: String
+  javaEnabled: Boolean
+  cookiesEnabled: Boolean
+}
+
+"""Geographic location data derived from visitor IP."""
+type VisitorGeo {
+  latitude: Float
+  longitude: Float
+  city: String
+  region: String
+  country: String
+  countryCode: String
+  postalCode: String
+  timezone: String
+}
+
+"""Organization or company data associated with a visitor IP."""
+type VisitorOrg {
+  name: String
+  domain: String
+  industry: String
+  employeeCount: Int
+  revenue: String
+  isp: String
+  connectionType: String
+}
+
+# ─── Transcript ───────────────────────────────────────────────────────────────
+
+"""The full chat transcript for a session."""
+type Transcript {
+  id: ID!
+  chatId: ID!
+  details: TranscriptDetails
+  items: [TranscriptItem!]!
+  events: [TranscriptEvent!]
+  messages: [TranscriptMessage!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""Metadata about a transcript."""
+type TranscriptDetails {
+  transcriptId: ID!
+  operatorCount: Int
+  messageCount: Int
+  visitorMessageCount: Int
+  operatorMessageCount: Int
+  averageResponseTime: Float
+  firstResponseTime: Float
+  chatRating: String
+  chatComment: String
+}
+
+"""A single item (message or event) in a transcript."""
+union TranscriptItem = TranscriptMessage | TranscriptEvent
+
+"""A message in a chat transcript."""
+type TranscriptMessage {
+  id: ID!
+  transcriptId: ID!
+  operatorMessage: OperatorMessage
+  visitorMessage: VisitorMessage
+  timestamp: DateTime!
+  kind: String!
+}
+
+"""An event recorded in a transcript (e.g., operator joined/left)."""
+type TranscriptEvent {
+  id: ID!
+  transcriptId: ID!
+  kind: String!
+  actor: String
+  detail: String
+  timestamp: DateTime!
+}
+
+"""A message sent by an operator during a chat."""
+type OperatorMessage {
+  id: ID!
+  operatorId: ID!
+  operatorName: String!
+  body: String!
+  timestamp: DateTime!
+}
+
+"""A message sent by a visitor during a chat."""
+type VisitorMessage {
+  id: ID!
+  visitorId: ID!
+  visitorName: String
+  body: String!
+  timestamp: DateTime!
+}
+
+# ─── Automation ───────────────────────────────────────────────────────────────
+
+"""An automated chat rule that triggers based on visitor behavior."""
+type Automation {
+  id: ID!
+  name: String!
+  enabled: Boolean!
+  rules: [AutomationRule!]!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A single rule within an automation."""
+type AutomationRule {
+  id: ID!
+  automationId: ID!
+  conditions: [AutomationCondition!]!
+  actions: [AutomationAction!]!
+  event: AutomationEvent!
+  priority: Int
+}
+
+"""A condition evaluated to decide whether an automation fires."""
+type AutomationCondition {
+  id: ID!
+  field: String!
+  operator: String!
+  value: String!
+  logicGroup: Int
+}
+
+"""An action performed when automation conditions are met."""
+type AutomationAction {
+  id: ID!
+  actionType: String!
+  parameters: JSON
+  delaySeconds: Int
+}
+
+"""An event that can trigger an automation rule."""
+type AutomationEvent {
+  id: ID!
+  kind: String!
+  description: String
+}
+
+# ─── Operator ─────────────────────────────────────────────────────────────────
+
+"""A customer support agent who handles chats."""
+type Operator {
+  id: ID!
+  details: OperatorDetails
+  status: OperatorStatus
+  availability: OperatorAvailability
+  groups: [Group!]
+  shortcuts: [Shortcut!]
+  activeChats: [Chat!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""Detailed profile information for an operator."""
+type OperatorDetails {
+  operatorId: ID!
+  username: String!
+  email: String!
+  fullName: String
+  displayName: String
+  avatarURL: URL
+  role: String
+  timezone: String
+  locale: String
+}
+
+"""Current online/offline status of an operator."""
+type OperatorStatus {
+  online: Boolean!
+  available: Boolean!
+  chatCount: Int
+  maxConcurrentChats: Int
+  lastSeenAt: DateTime
+}
+
+"""Scheduled availability windows for an operator."""
+type OperatorAvailability {
+  operatorId: ID!
+  schedule: JSON
+  timezone: String
+  autoAwayEnabled: Boolean
+  autoAwayDelaySeconds: Int
+}
+
+# ─── Group ───────────────────────────────────────────────────────────────────
+
+"""A team or department of operators."""
+type Group {
+  id: ID!
+  details: GroupDetails
+  members: [GroupMember!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""Details about an operator group."""
+type GroupDetails {
+  groupId: ID!
+  name: String!
+  description: String
+  routingEnabled: Boolean
+  language: String
+}
+
+"""Membership record linking an operator to a group."""
+type GroupMember {
+  operatorId: ID!
+  groupId: ID!
+  role: String
+  joinedAt: DateTime
+}
+
+# ─── Campaign ─────────────────────────────────────────────────────────────────
+
+"""A targeted outreach campaign sent to visitors."""
+type Campaign {
+  id: ID!
+  details: CampaignDetails
+  trigger: CampaignTrigger
+  messages: [CampaignMessage!]
+  enabled: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""Metadata for a campaign."""
+type CampaignDetails {
+  campaignId: ID!
+  name: String!
+  description: String
+  targetURL: URL
+  impressions: Int
+  conversions: Int
+  conversionRate: Float
+}
+
+"""The trigger criteria that fires a campaign."""
+type CampaignTrigger {
+  kind: String!
+  delaySeconds: Int
+  urlPattern: String
+  pageViewCount: Int
+  visitCount: Int
+  customConditions: JSON
+}
+
+"""A message associated with a campaign."""
+type CampaignMessage {
+  id: ID!
+  campaignId: ID!
+  body: String!
+  operatorId: ID
+  language: String
+  sentAt: DateTime
+}
+
+# ─── Greeting / Form ──────────────────────────────────────────────────────────
+
+"""A greeting presented to visitors before or during chat."""
+type Greeting {
+  id: ID!
+  name: String!
+  body: String!
+  enabled: Boolean!
+  targetURL: URL
+  createdAt: DateTime!
+}
+
+"""A pre-chat or post-chat survey form."""
+type Form {
+  id: ID!
+  name: String!
+  kind: String!
+  fields: [FormField!]!
+  enabled: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A single field within a form."""
+type FormField {
+  id: ID!
+  formId: ID!
+  label: String!
+  fieldType: String!
+  required: Boolean!
+  placeholder: String
+  options: [String!]
+  order: Int!
+}
+
+# ─── Offline Message ──────────────────────────────────────────────────────────
+
+"""A message left by a visitor when no operators are available."""
+type OfflineMessage {
+  id: ID!
+  visitorName: String
+  visitorEmail: String
+  body: String!
+  groups: [Group!]
+  customData: [CustomData!]
+  createdAt: DateTime!
+  read: Boolean!
+}
+
+# ─── Notification ─────────────────────────────────────────────────────────────
+
+"""A system or chat notification sent to an operator."""
+type Notification {
+  id: ID!
+  details: NotificationDetails
+  read: Boolean!
+  createdAt: DateTime!
+}
+
+"""Details about a notification."""
+type NotificationDetails {
+  notificationId: ID!
+  kind: String!
+  title: String!
+  body: String
+  actionURL: URL
+  recipientId: ID
+}
+
+# ─── Reporting ────────────────────────────────────────────────────────────────
+
+"""An aggregated report for an account or group."""
+type Report {
+  id: ID!
+  kind: String!
+  periodStart: DateTime!
+  periodEnd: DateTime!
+  summary: DailySummary
+  metrics: [Metric!]
+  generatedAt: DateTime!
+}
+
+"""A daily summary roll-up."""
+type DailySummary {
+  date: String!
+  totalChats: Int!
+  missedChats: Int!
+  offlineMessages: Int!
+  averageChatDuration: Float
+  averageResponseTime: Float
+  visitorSatisfactionScore: Float
+  operatorCount: Int
+}
+
+"""A single numeric metric data point."""
+type Metric {
+  id: ID!
+  name: String!
+  period: MetricPeriod
+  details: MetricDetails
+  value: Float!
+  unit: String
+}
+
+"""The time period covered by a metric."""
+type MetricPeriod {
+  start: DateTime!
+  end: DateTime!
+  granularity: String!
+}
+
+"""Additional context or breakdown for a metric."""
+type MetricDetails {
+  metricId: ID!
+  dimension: String
+  dimensionValue: String
+  comparisonValue: Float
+  changePercent: Float
+}
+
+# ─── CoBrowse ─────────────────────────────────────────────────────────────────
+
+"""A co-browsing session initiated during a chat."""
+type CoBrowse {
+  id: ID!
+  chatId: ID!
+  status: String!
+  request: CoBrowseRequest
+  startedAt: DateTime
+  endedAt: DateTime
+}
+
+"""A request to initiate a co-browse session."""
+type CoBrowseRequest {
+  requestId: ID!
+  initiatedBy: String!
+  acceptedAt: DateTime
+  declinedAt: DateTime
+}
+
+# ─── File Transfer ────────────────────────────────────────────────────────────
+
+"""A file transferred during a chat session."""
+type FileTransfer {
+  id: ID!
+  chatId: ID!
+  details: FileDetails
+  uploadedAt: DateTime!
+  direction: String!
+}
+
+"""Metadata for a transferred file."""
+type FileDetails {
+  fileId: ID!
+  filename: String!
+  mimeType: String!
+  sizeBytes: Int!
+  downloadURL: URL
+  expiresAt: DateTime
+}
+
+# ─── Tags / Shortcuts / Notes ─────────────────────────────────────────────────
+
+"""A label applied to a chat for categorization."""
+type Tag {
+  id: ID!
+  name: String!
+  color: String
+  chatCount: Int
+  createdAt: DateTime!
+}
+
+"""A saved text shortcut an operator can insert into chat."""
+type Shortcut {
+  id: ID!
+  operatorId: ID
+  name: String!
+  body: String!
+  global: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""An internal note attached to a chat by an operator."""
+type ChatNote {
+  id: ID!
+  chatId: ID!
+  authorId: ID!
+  body: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+# ─── Integrations ─────────────────────────────────────────────────────────────
+
+"""An external integration connected to Olark."""
+type Integration {
+  id: ID!
+  name: String!
+  kind: String!
+  enabled: Boolean!
+  config: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A CRM-specific integration with field mapping."""
+type IntegrationCRM {
+  integrationId: ID!
+  crmType: String!
+  syncEnabled: Boolean!
+  fieldMappings: JSON
+  lastSyncedAt: DateTime
+}
+
+# ─── Custom Data ──────────────────────────────────────────────────────────────
+
+"""A custom key-value pair attached to a visitor or chat."""
+type CustomData {
+  id: ID!
+  key: String!
+  label: String
+  value: String!
+  kind: String
+}
+
+# ─── Authentication ───────────────────────────────────────────────────────────
+
+"""An API token used for authenticating REST/webhook calls."""
+type APIToken {
+  id: ID!
+  name: String!
+  token: String!
+  scopes: [String!]
+  createdAt: DateTime!
+  expiresAt: DateTime
+  lastUsedAt: DateTime
+}
+
+# ─── Account ──────────────────────────────────────────────────────────────────
+
+"""The top-level Olark account."""
+type Account {
+  id: ID!
+  details: AccountDetails
+  operators: [Operator!]
+  groups: [Group!]
+  automations: [Automation!]
+  campaigns: [Campaign!]
+  integrations: [Integration!]
+  apiTokens: [APIToken!]
+  forms: [Form!]
+  shortcuts: [Shortcut!]
+  tags: [Tag!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""Details and settings for an Olark account."""
+type AccountDetails {
+  accountId: ID!
+  siteId: String!
+  companyName: String
+  plan: String
+  timezone: String
+  locale: String
+  chatEnabled: Boolean!
+  offlineMessagesEnabled: Boolean!
+  maxConcurrentChats: Int
+  supportEmail: String
+  webhookURL: URL
+}
+
+# ─── Root Types ───────────────────────────────────────────────────────────────
+
+type Query {
+  account: Account
+  chat(id: ID!): Chat
+  chats(status: ChatStatus, limit: Int, offset: Int): [Chat!]
+  visitor(id: ID!): Visitor
+  visitors(limit: Int, offset: Int): [Visitor!]
+  transcript(chatId: ID!): Transcript
+  operator(id: ID!): Operator
+  operators(groupId: ID): [Operator!]
+  group(id: ID!): Group
+  groups: [Group!]
+  campaign(id: ID!): Campaign
+  campaigns(enabled: Boolean): [Campaign!]
+  automation(id: ID!): Automation
+  automations(enabled: Boolean): [Automation!]
+  offlineMessages(read: Boolean, limit: Int): [OfflineMessage!]
+  report(kind: String!, periodStart: DateTime!, periodEnd: DateTime!): Report
+  tags: [Tag!]
+  shortcuts(operatorId: ID): [Shortcut!]
+  integrations: [Integration!]
+  apiTokens: [APIToken!]
+  forms: [Form!]
+}
+
+type Mutation {
+  createChat(visitorId: ID!, groupId: ID): Chat
+  updateChat(id: ID!, status: ChatStatus): Chat
+  addTagToChat(chatId: ID!, tagId: ID!): Chat
+  removeTagFromChat(chatId: ID!, tagId: ID!): Chat
+  addNoteToChat(chatId: ID!, body: String!): ChatNote
+  createOperator(email: String!, username: String!, fullName: String): Operator
+  updateOperator(id: ID!, details: JSON): Operator
+  deleteOperator(id: ID!): Boolean
+  createGroup(name: String!, description: String): Group
+  updateGroup(id: ID!, details: JSON): Group
+  deleteGroup(id: ID!): Boolean
+  addMemberToGroup(groupId: ID!, operatorId: ID!): GroupMember
+  removeMemberFromGroup(groupId: ID!, operatorId: ID!): Boolean
+  createCampaign(name: String!, trigger: JSON!): Campaign
+  updateCampaign(id: ID!, details: JSON): Campaign
+  deleteCampaign(id: ID!): Boolean
+  createAutomation(name: String!, rules: JSON!): Automation
+  updateAutomation(id: ID!, details: JSON): Automation
+  deleteAutomation(id: ID!): Boolean
+  createTag(name: String!, color: String): Tag
+  deleteTag(id: ID!): Boolean
+  createShortcut(name: String!, body: String!, global: Boolean): Shortcut
+  updateShortcut(id: ID!, name: String, body: String): Shortcut
+  deleteShortcut(id: ID!): Boolean
+  createAPIToken(name: String!, scopes: [String!]): APIToken
+  revokeAPIToken(id: ID!): Boolean
+  markOfflineMessageRead(id: ID!): OfflineMessage
+  updateVisitorDetails(id: ID!, details: JSON): Visitor
+}
+
+type Subscription {
+  chatStarted: Chat
+  chatEnded(chatId: ID): Chat
+  messageReceived(chatId: ID): TranscriptMessage
+  operatorStatusChanged(operatorId: ID): OperatorStatus
+  visitorTyping(chatId: ID!): Visitor
+  newOfflineMessage: OfflineMessage
+}
