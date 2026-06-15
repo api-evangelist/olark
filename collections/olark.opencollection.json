@@ -1,0 +1,259 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olark JavaScript API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "site_id",
+      "value": "{{site_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "olark.configure(key, value)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/configure",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets a chatbox configuration value before the widget initializes.\nExample: `olark.configure('system.hb_position', 'left');`.\n"
+        },
+        {
+          "info": {
+            "name": "olark.identify(siteId)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/identify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initializes the Olark chatbox with the supplied site identifier.\nExample: `olark.identify('1234-456-78-9810');`.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Box",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api.box.show",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/show"
+          },
+          "docs": "api.box.show"
+        },
+        {
+          "info": {
+            "name": "api.box.hide",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/hide"
+          },
+          "docs": "api.box.hide"
+        },
+        {
+          "info": {
+            "name": "api.box.expand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/expand"
+          },
+          "docs": "api.box.expand"
+        },
+        {
+          "info": {
+            "name": "api.box.shrink",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/shrink"
+          },
+          "docs": "api.box.shrink"
+        },
+        {
+          "info": {
+            "name": "api.box.setLocale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/setLocale",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.box.setLocale"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Chat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api.chat.sendMessageToVisitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/chat/sendMessageToVisitor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.chat.sendMessageToVisitor"
+        },
+        {
+          "info": {
+            "name": "api.chat.setOperatorGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/chat/setOperatorGroup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.chat.setOperatorGroup"
+        },
+        {
+          "info": {
+            "name": "api.chat.onBeginConversation (event subscription)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/chat/onBeginConversation"
+          },
+          "docs": "api.chat.onBeginConversation (event subscription)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Visitor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api.visitor.getDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/getDetails"
+          },
+          "docs": "api.visitor.getDetails"
+        },
+        {
+          "info": {
+            "name": "api.visitor.updateFullName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/updateFullName",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.visitor.updateFullName"
+        },
+        {
+          "info": {
+            "name": "api.visitor.updateEmailAddress",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/updateEmailAddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.visitor.updateEmailAddress"
+        },
+        {
+          "info": {
+            "name": "api.visitor.updatePhoneNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/updatePhoneNumber",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.visitor.updatePhoneNumber"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api.rules.defineRule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/rules/defineRule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.rules.defineRule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
