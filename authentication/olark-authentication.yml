@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/olark-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: OlarkSiteId
+  type: apiKey
+  in: query
+  parameter: site_id
+  description: |-
+    Olark identifies an installation via a public site identifier
+    (e.g. `1234-456-78-9810`) passed client-side to `olark.identify()`.
+    It is not a secret and is included here only to make the
+    identification mechanism explicit in the OpenAPI contract.
+  sources:
+  - openapi/olark-openapi.yml

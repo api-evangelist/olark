@@ -40,6 +40,12 @@ apis:
   - url: graphql/olark-graphql.md
     type: GraphQL
 common:
+- type: VulnerabilityDisclosure
+  url: security/olark-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/olark-domain-security.yml
+- type: Authentication
+  url: authentication/olark-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/olark
 - type: LinkedIn
@@ -54,6 +60,8 @@ common:
   url: https://www.olark.com/pricing
 - type: Signup
   url: https://www.olark.com/signup
+- type: Blog
+  url: https://blog.olark.com/rss.xml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
