@@ -1,0 +1,21 @@
+{
+  "repo": "olark",
+  "feeds": [
+    {
+      "source": "https://blog.olark.com/rss.xml",
+      "feed_url": "https://blog.olark.com/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.olark.com/signup",
+      "feed_url": "https://www.olark.com/signup",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 10
+}
