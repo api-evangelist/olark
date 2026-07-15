@@ -40,6 +40,8 @@ apis:
   - url: graphql/olark-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/olark-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/olark-vulnerability-disclosure.yml
 - type: DomainSecurity
