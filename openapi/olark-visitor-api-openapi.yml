@@ -1,0 +1,119 @@
+openapi: 3.1.0
+info:
+  title: Olark JavaScript Box Visitor API
+  description: 'Olark exposes a browser-side JavaScript API for embedding and controlling
+
+    the Olark live-chat widget. It is not a server REST API; this OpenAPI
+
+    document describes the JavaScript API surface as documented at
+
+    https://www.olark.com/api by treating each `olark(''api.<area>.<method>'')`
+
+    invocation as a logical operation under a synthetic `/api/...` path so
+
+    that the contract can be navigated alongside conventional REST APIs.
+
+    Authentication is performed client-side via the Olark site identifier
+
+    passed to `olark.identify(siteId)`.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Olark
+    url: https://www.olark.com/api
+servers:
+- url: https://www.olark.com/api
+  description: Olark JavaScript API documentation host (logical base for this spec)
+security:
+- OlarkSiteId: []
+tags:
+- name: Visitor
+  description: Visitor profile updates
+paths:
+  /visitor/getDetails:
+    post:
+      tags:
+      - Visitor
+      summary: api.visitor.getDetails
+      responses:
+        '200':
+          description: Visitor details returned to callback
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /visitor/updateFullName:
+    post:
+      tags:
+      - Visitor
+      summary: api.visitor.updateFullName
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - fullName
+              properties:
+                fullName:
+                  type: string
+      responses:
+        '200':
+          description: Visitor name updated
+  /visitor/updateEmailAddress:
+    post:
+      tags:
+      - Visitor
+      summary: api.visitor.updateEmailAddress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - emailAddress
+              properties:
+                emailAddress:
+                  type: string
+                  format: email
+      responses:
+        '200':
+          description: Visitor email updated
+  /visitor/updatePhoneNumber:
+    post:
+      tags:
+      - Visitor
+      summary: api.visitor.updatePhoneNumber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - phoneNumber
+              properties:
+                phoneNumber:
+                  type: string
+      responses:
+        '200':
+          description: Visitor phone updated
+components:
+  securitySchemes:
+    OlarkSiteId:
+      type: apiKey
+      in: query
+      name: site_id
+      description: 'Olark identifies an installation via a public site identifier
+
+        (e.g. `1234-456-78-9810`) passed client-side to `olark.identify()`.
+
+        It is not a secret and is included here only to make the
+
+        identification mechanism explicit in the OpenAPI contract.
+
+        '
