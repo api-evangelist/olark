@@ -8,7 +8,19 @@ description: Olark is a live chat and AI-powered customer communication platform
   embedding and customizing the chat widget, plus webhooks and integrations with 100+
   external tools.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/olark.png
 tags:
 - Live Chat
 - Customer Support
@@ -23,10 +35,11 @@ specificationVersion: '0.19'
 apis:
 - aid: olark:javascript-api
   name: Olark JavaScript API
-  description: Browser-side JavaScript API for controlling the Olark chat widget,
-    including chatbox appearance and behavior, chat conversations, visitor information,
-    attention grabber, greeter and pre-chat surveys, targeted chat rules, and integrations.
-    Authentication is configured via an Olark site identifier passed to olark.identify().
+  description: >-
+    Browser-side JavaScript API for controlling the Olark chat widget, including chatbox appearance and
+    behavior, chat conversations, visitor information, attention grabber, greeter and pre-chat surveys,
+    targeted chat rules, and integrations. Authentication is configured via an Olark site identifier passed
+    to olark.identify().
   humanURL: https://www.olark.com/api
   baseURL: https://www.olark.com/api
   tags:
@@ -39,6 +52,56 @@ apis:
     url: https://www.olark.com/api
   - url: graphql/olark-graphql.md
     type: GraphQL
+- aid: olark:olark-box-api
+  name: Olark Box API
+  description: Chatbox visibility and lifecycle
+  humanURL: https://www.olark.com/api
+  baseURL: https://www.olark.com/api
+  tags:
+  - Box
+  properties:
+  - type: OpenAPI
+    url: openapi/olark-box-api-openapi.yml
+- aid: olark:olark-chat-api
+  name: Olark Chat API
+  description: Chat conversation and operator control
+  humanURL: https://www.olark.com/api
+  baseURL: https://www.olark.com/api
+  tags:
+  - Chat
+  properties:
+  - type: OpenAPI
+    url: openapi/olark-chat-api-openapi.yml
+- aid: olark:olark-configure-api
+  name: Olark Configure API
+  description: Pre-load configuration
+  humanURL: https://www.olark.com/api
+  baseURL: https://www.olark.com/api
+  tags:
+  - Configure
+  properties:
+  - type: OpenAPI
+    url: openapi/olark-configure-api-openapi.yml
+- aid: olark:olark-rules-api
+  name: Olark Rules API
+  description: Targeted chat rules
+  humanURL: https://www.olark.com/api
+  baseURL: https://www.olark.com/api
+  tags:
+  - Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/olark-rules-api-openapi.yml
+- aid: olark:olark-visitor-api
+  name: Olark Visitor API
+  description: Visitor profile updates
+  humanURL: https://www.olark.com/api
+  baseURL: https://www.olark.com/api
+  tags:
+  - Visitor
+  properties:
+  - type: OpenAPI
+    url: openapi/olark-visitor-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/olark-agentic-access.yml
