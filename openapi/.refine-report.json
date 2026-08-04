@@ -1,0 +1,22 @@
+{
+  "provider": "olark",
+  "sources": [
+    "olark-box-api-openapi.yml",
+    "olark-chat-api-openapi.yml",
+    "olark-configure-api-openapi.yml",
+    "olark-rules-api-openapi.yml",
+    "olark-visitor-api-openapi.yml"
+  ],
+  "outputs": [
+    "olark-box-api-openapi.yml",
+    "olark-chat-api-openapi.yml",
+    "olark-configure-api-openapi.yml",
+    "olark-rules-api-openapi.yml",
+    "olark-visitor-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
