@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olark JavaScript Box Chat API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "site_id",
+      "value": "{{site_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api.chat.sendMessageToVisitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/chat/sendMessageToVisitor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.chat.sendMessageToVisitor"
+        },
+        {
+          "info": {
+            "name": "api.chat.setOperatorGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/chat/setOperatorGroup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.chat.setOperatorGroup"
+        },
+        {
+          "info": {
+            "name": "api.chat.onBeginConversation (event subscription)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/chat/onBeginConversation"
+          },
+          "docs": "api.chat.onBeginConversation (event subscription)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

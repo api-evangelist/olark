@@ -1,0 +1,281 @@
+{
+  "item": [
+    {
+      "id": "55a6727b-1344-4982-b75c-6b446880f665",
+      "name": "Chat",
+      "description": {
+        "content": "Chat conversation and operator control",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e79aa54f-5331-417d-996e-e33a955bd80e",
+          "name": "api.chat.sendMessageToVisitor",
+          "request": {
+            "name": "api.chat.sendMessageToVisitor",
+            "description": {},
+            "url": {
+              "path": [
+                "chat",
+                "sendMessageToVisitor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"body\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ac16fcbf-370b-4353-aec2-e18d8bd34f6e",
+              "name": "Message dispatched to visitor",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "sendMessageToVisitor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78698aa0-bdc1-45ae-8f25-56b3e219c6e9",
+          "name": "api.chat.setOperatorGroup",
+          "request": {
+            "name": "api.chat.setOperatorGroup",
+            "description": {},
+            "url": {
+              "path": [
+                "chat",
+                "setOperatorGroup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"group\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b1640db-1eae-41a5-9d7d-5df2ab443100",
+              "name": "Operator group set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "setOperatorGroup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a387825a-6992-4a4d-8ce2-94c814d62840",
+          "name": "api.chat.onBeginConversation (event subscription)",
+          "request": {
+            "name": "api.chat.onBeginConversation (event subscription)",
+            "description": {},
+            "url": {
+              "path": [
+                "chat",
+                "onBeginConversation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f5d8801-a35f-4d7a-93e4-c39ac94275ea",
+              "name": "Callback registered",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "onBeginConversation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.olark.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "site_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ffcb533b-3ff4-4d7b-b08f-1417f9407448",
+    "name": "Olark JavaScript Box Chat API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Olark exposes a browser-side JavaScript API for embedding and controlling\nthe Olark live-chat widget. It is not a server REST API; this OpenAPI\ndocument describes the JavaScript API surface as documented at\nhttps://www.olark.com/api by treating each `olark('api.<area>.<method>')`\ninvocation as a logical operation under a synthetic `/api/...` path so\nthat the contract can be navigated alongside conventional REST APIs.\nAuthentication is performed client-side via the Olark site identifier\npassed to `olark.identify(siteId)`.\n\n\nContact Support:\n Name: Olark",
+      "type": "text/plain"
+    }
+  }
+}

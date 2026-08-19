@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "b2a3a45e-72d4-4368-9b0a-cb73aa0ed0d9",
+      "name": "Rules",
+      "description": {
+        "content": "Targeted chat rules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae045fcd-864b-4d6c-aa5c-3bbccc1f4141",
+          "name": "api.rules.defineRule",
+          "request": {
+            "name": "api.rules.defineRule",
+            "description": {},
+            "url": {
+              "path": [
+                "rules",
+                "defineRule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 5401,\n  \"key_1\": \"string\",\n  \"key_2\": 8030.896087024306\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "384f24f4-9ae9-49fd-bb38-7761c1ef23ce",
+              "name": "Rule defined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rules",
+                    "defineRule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.olark.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "site_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d6d23955-9572-422b-a03f-c1929aa4ef7c",
+    "name": "Olark JavaScript Box Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Olark exposes a browser-side JavaScript API for embedding and controlling\nthe Olark live-chat widget. It is not a server REST API; this OpenAPI\ndocument describes the JavaScript API surface as documented at\nhttps://www.olark.com/api by treating each `olark('api.<area>.<method>')`\ninvocation as a logical operation under a synthetic `/api/...` path so\nthat the contract can be navigated alongside conventional REST APIs.\nAuthentication is performed client-side via the Olark site identifier\npassed to `olark.identify(siteId)`.\n\n\nContact Support:\n Name: Olark",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "item": [
+    {
+      "id": "16d3c1ea-fa6f-4f81-abe3-10629d6e99d4",
+      "name": "Configure",
+      "description": {
+        "content": "Pre-load configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79901fad-0a42-4f78-97a2-f5413267cf0f",
+          "name": "olark.configure(key, value)",
+          "request": {
+            "name": "olark.configure(key, value)",
+            "description": {
+              "content": "Sets a chatbox configuration value before the widget initializes.\nExample: `olark.configure('system.hb_position', 'left');`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"value\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc9a6ace-07e0-4beb-a0e8-d8b25c0ca539",
+              "name": "Configuration applied (client-side)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"value\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb034fc7-2aaf-4ba0-9c76-02c5fbc89830",
+          "name": "olark.identify(siteId)",
+          "request": {
+            "name": "olark.identify(siteId)",
+            "description": {
+              "content": "Initializes the Olark chatbox with the supplied site identifier.\nExample: `olark.identify('1234-456-78-9810');`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"siteId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4b8b056-32f6-4bec-a8f3-34abdb8fa44e",
+              "name": "Identified (client-side)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.olark.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "site_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a4e25b0f-4016-431e-880e-7ab390ca0b01",
+    "name": "Olark JavaScript Box Configure API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Olark exposes a browser-side JavaScript API for embedding and controlling\nthe Olark live-chat widget. It is not a server REST API; this OpenAPI\ndocument describes the JavaScript API surface as documented at\nhttps://www.olark.com/api by treating each `olark('api.<area>.<method>')`\ninvocation as a logical operation under a synthetic `/api/...` path so\nthat the contract can be navigated alongside conventional REST APIs.\nAuthentication is performed client-side via the Olark site identifier\npassed to `olark.identify(siteId)`.\n\n\nContact Support:\n Name: Olark",
+      "type": "text/plain"
+    }
+  }
+}

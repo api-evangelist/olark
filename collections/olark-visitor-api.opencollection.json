@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olark JavaScript Box Visitor API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "site_id",
+      "value": "{{site_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Visitor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api.visitor.getDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/getDetails"
+          },
+          "docs": "api.visitor.getDetails"
+        },
+        {
+          "info": {
+            "name": "api.visitor.updateFullName",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/updateFullName",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.visitor.updateFullName"
+        },
+        {
+          "info": {
+            "name": "api.visitor.updateEmailAddress",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/updateEmailAddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.visitor.updateEmailAddress"
+        },
+        {
+          "info": {
+            "name": "api.visitor.updatePhoneNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/visitor/updatePhoneNumber",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.visitor.updatePhoneNumber"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

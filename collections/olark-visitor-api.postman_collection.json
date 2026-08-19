@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "0fe98f6e-c069-4634-ad16-95b8d60802b0",
+      "name": "Visitor",
+      "description": {
+        "content": "Visitor profile updates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6053069e-2a4c-4907-86fe-118d8d573cfb",
+          "name": "api.visitor.getDetails",
+          "request": {
+            "name": "api.visitor.getDetails",
+            "description": {},
+            "url": {
+              "path": [
+                "visitor",
+                "getDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f7494f66-9f9c-46c5-8b63-8c9e456a0868",
+              "name": "Visitor details returned to callback",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "visitor",
+                    "getDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\",\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f06e14c6-3137-47aa-8257-6ecbba41a631",
+          "name": "api.visitor.updateFullName",
+          "request": {
+            "name": "api.visitor.updateFullName",
+            "description": {},
+            "url": {
+              "path": [
+                "visitor",
+                "updateFullName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1401f0e-bcb4-48bb-bcf7-0c2b8d4bc674",
+              "name": "Visitor name updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "visitor",
+                    "updateFullName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fullName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39f43bff-e0aa-4ea5-a777-a03b2e9f47c2",
+          "name": "api.visitor.updateEmailAddress",
+          "request": {
+            "name": "api.visitor.updateEmailAddress",
+            "description": {},
+            "url": {
+              "path": [
+                "visitor",
+                "updateEmailAddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10abc5af-bff4-4ca1-944a-921673954c34",
+              "name": "Visitor email updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "visitor",
+                    "updateEmailAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "020cae7d-7b83-4372-8fe4-85c67a635f83",
+          "name": "api.visitor.updatePhoneNumber",
+          "request": {
+            "name": "api.visitor.updatePhoneNumber",
+            "description": {},
+            "url": {
+              "path": [
+                "visitor",
+                "updatePhoneNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c3fcbcec-c6db-4ca3-bfc5-55b03adfe23d",
+              "name": "Visitor phone updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "visitor",
+                    "updatePhoneNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phoneNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.olark.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "site_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "94a02a2a-28f3-449b-9aac-0481fb938368",
+    "name": "Olark JavaScript Box Visitor API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Olark exposes a browser-side JavaScript API for embedding and controlling\nthe Olark live-chat widget. It is not a server REST API; this OpenAPI\ndocument describes the JavaScript API surface as documented at\nhttps://www.olark.com/api by treating each `olark('api.<area>.<method>')`\ninvocation as a logical operation under a synthetic `/api/...` path so\nthat the contract can be navigated alongside conventional REST APIs.\nAuthentication is performed client-side via the Olark site identifier\npassed to `olark.identify(siteId)`.\n\n\nContact Support:\n Name: Olark",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "a55e3bda-c4b2-4cda-b225-266d4887cef8",
+      "name": "Box",
+      "description": {
+        "content": "Chatbox visibility and lifecycle",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c3d60e1-c553-4f65-a552-1e2fea25c3d9",
+          "name": "api.box.show",
+          "request": {
+            "name": "api.box.show",
+            "description": {},
+            "url": {
+              "path": [
+                "box",
+                "show"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0a62122-3621-4633-89cf-19fe3163ee0e",
+              "name": "Chatbox shown",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "box",
+                    "show"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4b095f2-98b9-4fc5-97ea-e7b6c1ad488d",
+          "name": "api.box.hide",
+          "request": {
+            "name": "api.box.hide",
+            "description": {},
+            "url": {
+              "path": [
+                "box",
+                "hide"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02b7acaf-1cdd-49a4-a2a2-e230c90cf1f8",
+              "name": "Chatbox hidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "box",
+                    "hide"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "230af981-6174-4496-9893-b7f1cc80b5ce",
+          "name": "api.box.expand",
+          "request": {
+            "name": "api.box.expand",
+            "description": {},
+            "url": {
+              "path": [
+                "box",
+                "expand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6df6f2e-54ad-41c4-963f-21011ed6fe55",
+              "name": "Chatbox expanded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "box",
+                    "expand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4314a9ff-8e4c-44fb-8f4f-46913875c30a",
+          "name": "api.box.shrink",
+          "request": {
+            "name": "api.box.shrink",
+            "description": {},
+            "url": {
+              "path": [
+                "box",
+                "shrink"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b31a93a-e466-4bab-ad50-c7d08b80ed07",
+              "name": "Chatbox shrunk",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "box",
+                    "shrink"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "248293ed-2eb0-40b4-b646-a8c1d642ebbd",
+          "name": "api.box.setLocale",
+          "request": {
+            "name": "api.box.setLocale",
+            "description": {},
+            "url": {
+              "path": [
+                "box",
+                "setLocale"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locale\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1a1681a0-743d-4df1-9d3c-918a6396c0e7",
+              "name": "Locale applied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "box",
+                    "setLocale"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "site_id",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.olark.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "site_id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0110f5c8-177f-4f2c-bb50-d19dd9565630",
+    "name": "Olark JavaScript Box API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Olark exposes a browser-side JavaScript API for embedding and controlling\nthe Olark live-chat widget. It is not a server REST API; this OpenAPI\ndocument describes the JavaScript API surface as documented at\nhttps://www.olark.com/api by treating each `olark('api.<area>.<method>')`\ninvocation as a logical operation under a synthetic `/api/...` path so\nthat the contract can be navigated alongside conventional REST APIs.\nAuthentication is performed client-side via the Olark site identifier\npassed to `olark.identify(siteId)`.\n\n\nContact Support:\n Name: Olark",
+      "type": "text/plain"
+    }
+  }
+}

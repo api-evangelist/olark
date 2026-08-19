@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olark JavaScript Box API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "site_id",
+      "value": "{{site_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Box",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api.box.show",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/show"
+          },
+          "docs": "api.box.show"
+        },
+        {
+          "info": {
+            "name": "api.box.hide",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/hide"
+          },
+          "docs": "api.box.hide"
+        },
+        {
+          "info": {
+            "name": "api.box.expand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/expand"
+          },
+          "docs": "api.box.expand"
+        },
+        {
+          "info": {
+            "name": "api.box.shrink",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/shrink"
+          },
+          "docs": "api.box.shrink"
+        },
+        {
+          "info": {
+            "name": "api.box.setLocale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/box/setLocale",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "api.box.setLocale"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olark JavaScript Box Configure API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "site_id",
+      "value": "{{site_id}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "olark.configure(key, value)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/configure",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets a chatbox configuration value before the widget initializes.\nExample: `olark.configure('system.hb_position', 'left');`.\n"
+        },
+        {
+          "info": {
+            "name": "olark.identify(siteId)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.olark.com/api/identify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initializes the Olark chatbox with the supplied site identifier.\nExample: `olark.identify('1234-456-78-9810');`.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
