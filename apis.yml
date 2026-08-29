@@ -122,6 +122,9 @@ apis:
   - type: OpenAPI
     url: openapi/olark-visitor-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/olark-capability-edges.yml
+  name: Olark Business Capability Map
 - type: AgenticAccess
   url: agentic-access/olark-agentic-access.yml
 - type: VulnerabilityDisclosure
