@@ -8,6 +8,18 @@ description: Olark is a live chat and AI-powered customer communication platform
   embedding and customizing the chat widget, plus webhooks and integrations with 100+
   external tools.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
