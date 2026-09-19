@@ -65,6 +65,11 @@ apis:
   tags:
   - Live Chat
   - JavaScript
+  - Widgets
+  - Customer Engagement
+  tags_raw:
+  - Live Chat
+  - JavaScript
   - Widget
   - Customer Engagement
   properties:
