@@ -1,23 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Olark JavaScript Box Visitor API
+  title: Olark JavaScript Visitor API
   description: 'Olark exposes a browser-side JavaScript API for embedding and controlling
 
-    the Olark live-chat widget. It is not a server REST API; this OpenAPI
-
-    document describes the JavaScript API surface as documented at
-
-    https://www.olark.com/api by treating each `olark(''api.<area>.<method>'')`
-
-    invocation as a logical operation under a synthetic `/api/...` path so
-
-    that the contract can be navigated alongside conventional REST APIs.
-
-    Authentication is performed client-side via the Olark site identifier
-
-    passed to `olark.identify(siteId)`.
-
-    '
+    the Olark live-chat widget.'
   version: 1.0.0
   contact:
     name: Olark
@@ -44,6 +30,8 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+      operationId: postVisitorGetDetails
+      x-operation-id-source: derived
   /visitor/updateFullName:
     post:
       tags:
@@ -63,6 +51,8 @@ paths:
       responses:
         '200':
           description: Visitor name updated
+      operationId: postVisitorUpdateFullName
+      x-operation-id-source: derived
   /visitor/updateEmailAddress:
     post:
       tags:
@@ -83,6 +73,8 @@ paths:
       responses:
         '200':
           description: Visitor email updated
+      operationId: postVisitorUpdateEmailAddress
+      x-operation-id-source: derived
   /visitor/updatePhoneNumber:
     post:
       tags:
@@ -102,6 +94,8 @@ paths:
       responses:
         '200':
           description: Visitor phone updated
+      operationId: postVisitorUpdatePhoneNumber
+      x-operation-id-source: derived
 components:
   securitySchemes:
     OlarkSiteId:

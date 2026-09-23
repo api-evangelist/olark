@@ -1,23 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Olark JavaScript Box Configure API
+  title: Olark JavaScript Configure API
   description: 'Olark exposes a browser-side JavaScript API for embedding and controlling
 
-    the Olark live-chat widget. It is not a server REST API; this OpenAPI
-
-    document describes the JavaScript API surface as documented at
-
-    https://www.olark.com/api by treating each `olark(''api.<area>.<method>'')`
-
-    invocation as a logical operation under a synthetic `/api/...` path so
-
-    that the contract can be navigated alongside conventional REST APIs.
-
-    Authentication is performed client-side via the Olark site identifier
-
-    passed to `olark.identify(siteId)`.
-
-    '
+    the Olark live-chat widget.'
   version: 1.0.0
   contact:
     name: Olark
@@ -38,9 +24,7 @@ paths:
       summary: olark.configure(key, value)
       description: 'Sets a chatbox configuration value before the widget initializes.
 
-        Example: `olark.configure(''system.hb_position'', ''left'');`.
-
-        '
+        Example: `olark.configure(''system.hb_position'', ''left'');`.'
       requestBody:
         required: true
         content:
@@ -57,6 +41,8 @@ paths:
       responses:
         '200':
           description: Configuration applied (client-side)
+      operationId: postConfigure
+      x-operation-id-source: derived
   /identify:
     post:
       tags:
@@ -64,9 +50,7 @@ paths:
       summary: olark.identify(siteId)
       description: 'Initializes the Olark chatbox with the supplied site identifier.
 
-        Example: `olark.identify(''1234-456-78-9810'');`.
-
-        '
+        Example: `olark.identify(''1234-456-78-9810'');`.'
       requestBody:
         required: true
         content:
@@ -81,6 +65,8 @@ paths:
       responses:
         '200':
           description: Identified (client-side)
+      operationId: postIdentify
+      x-operation-id-source: derived
 components:
   securitySchemes:
     OlarkSiteId:

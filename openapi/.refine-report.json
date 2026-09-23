@@ -1,11 +1,7 @@
 {
   "provider": "olark",
   "sources": [
-    "olark-box-api-openapi.yml",
-    "olark-chat-api-openapi.yml",
-    "olark-configure-api-openapi.yml",
-    "olark-rules-api-openapi.yml",
-    "olark-visitor-api-openapi.yml"
+    "_original/olark-openapi.yml"
   ],
   "outputs": [
     "olark-box-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "olark-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "olark-box-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olark-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olark-configure-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olark-rules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "olark-visitor-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
