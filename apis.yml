@@ -36,7 +36,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/olark.png
 tags:
 - Live Chat
-- Customer-Support
+- Customer Support
 - Chatbots
 - Customer Engagement
 - Messaging
@@ -48,6 +48,7 @@ tags_raw:
 - Customer Engagement
 - Messaging
 - Accessibility
+- Customer-Support
 url: https://raw.githubusercontent.com/api-evangelist/olark/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-05-11'
@@ -75,8 +76,6 @@ apis:
   properties:
   - type: Documentation
     url: https://www.olark.com/api
-  - url: graphql/olark-graphql.md
-    type: GraphQL
 - aid: olark:olark-box-api
   name: Olark Box API
   description: Chatbox visibility and lifecycle
