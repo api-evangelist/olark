@@ -2,21 +2,21 @@
   "repo": "olark",
   "feeds": [
     {
-      "source": "https://www.olark.com/signup",
-      "feed_url": "https://www.olark.com/signup",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
       "source": "https://blog.olark.com/rss.xml",
       "feed_url": "https://blog.olark.com/rss.xml",
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://www.olark.com/signup",
+      "feed_url": "https://www.olark.com/signup",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 10,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "blog_subdomain",
