@@ -1,4 +1,4 @@
-# Olark (olark)
+# Olark
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,59 +66,123 @@
 
 Olark is a live chat and AI-powered customer communication platform that enables businesses to engage website visitors in real time through chat, chatbots, WhatsApp, and SMS. The platform combines human support with CoPilot automation for capturing leads, driving sales, and providing 24/7 customer service, and is WCAG 2.1 AA accessibility certified. Olark exposes a browser-side JavaScript API for embedding and customizing the chat widget, plus webhooks and integrations with 100+ external tools.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/olark/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/olark/refs/heads/main/apis.yml)
+**Areas:** Live Chat · Customer Service · Chatbots · Customer Engagement · Messaging · Accessibility
 
-## Scope
+## Olark on APIs.io
 
-- **Type:** Index
+Everything profiled for Olark is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/olark/](https://apis.io/providers/olark/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Live Chat
-- Customer Support
-- Chatbots
-- Customer Engagement
-- Messaging
-- Accessibility
+- [Olark JavaScript API](https://apis.io/apis/olark/javascript-api/) — Browser-side JavaScript API for controlling the Olark chat widget, including chatbox appearance and behavior, chat conversations, visitor information,…
+- [Olark Box API](https://apis.io/apis/olark/olark-box-api/) — Chatbox visibility and lifecycle
+- [Olark Chat API](https://apis.io/apis/olark/olark-chat-api/) — Chat conversation and operator control
+- [Olark Configure API](https://apis.io/apis/olark/olark-configure-api/) — Pre-load configuration
+- [Olark Rules API](https://apis.io/apis/olark/olark-rules-api/) — Targeted chat rules
+- [Olark Visitor API](https://apis.io/apis/olark/olark-visitor-api/) — Visitor profile updates
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Olark JavaScript API
+GraphQL schemas.
 
-Browser-side JavaScript API for controlling the Olark chat widget, including chatbox appearance and behavior, chat conversations, visitor information, attention grabber, greeter and pre-chat surveys, targeted chat rules, and integrations. Authentication is configured via an Olark site identifier passed to olark.identify().
+- [Moved to /providers/olark/](https://apis.io/graphqls/olark/olark-graphql/)
 
-- **Human URL:** [https://www.olark.com/api](https://www.olark.com/api)
-- **Base URL:** `https://www.olark.com/api`
+#### MCP servers (1)
 
-#### Tags
+Model Context Protocol servers that expose the API to agents.
 
-- Live Chat
-- JavaScript
-- Widget
-- Customer Engagement
+- [olark](https://apis.io/servers/olark/olark/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://www.olark.com/api)
-- [Postman Collection](collections/olark.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/olark.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Common Properties
+- [Olark Agentic Access](https://apis.io/agentic-access/olark/olark-agentic-access/)
 
-- [GitHub Organization](https://github.com/olark)
-- [LinkedIn](https://www.linkedin.com/company/olark)
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Olark JavaScript API](https://apis.io/collections/olark/open-olark/)
+- [Olark JavaScript Box API](https://apis.io/collections/olark/open-olark-box-api/)
+- [Olark JavaScript Box Chat API](https://apis.io/collections/olark/open-olark-chat-api/)
+- [Olark JavaScript Box Configure API](https://apis.io/collections/olark/open-olark-configure-api/)
+- [Olark JavaScript Box Rules API](https://apis.io/collections/olark/open-olark-rules-api/)
+- [Olark JavaScript Box Visitor API](https://apis.io/collections/olark/open-olark-visitor-api/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Olark Authentication](https://apis.io/security/olark/olark-authentication/)
+- [Olark Domain Security](https://apis.io/security/olark/olark-domain-security/)
+- [Olark Vulnerability Disclosure](https://apis.io/security/olark/olark-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.olark.com)
 - [Documentation](https://www.olark.com/help)
-- [A P I  Documentation](https://www.olark.com/api)
 - [Pricing](https://www.olark.com/pricing)
-- [Sign Up](https://www.olark.com/signup)
+- [Blog](https://blog.olark.com/rss.xml)
+- [GitHub](https://github.com/olark)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.8** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 44.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 23.7 |
+
+**Agent readiness 43.3** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 17.6** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/olark/](https://apis.io/providers/olark/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Olark: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/olark/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
